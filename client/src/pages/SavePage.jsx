@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { StudentUpdate, getById, registration } from "../apiRequest/apiRequest";
 import AppNavbar from "../component/AppNavbar";
 
@@ -53,6 +53,7 @@ const SavePage = () => {
       ...fromValue,
       [name]: value,
     }));
+    console.log(fromValue);
   };
 
   const Save = async (e) => {
@@ -81,6 +82,9 @@ const SavePage = () => {
     <div>
       <AppNavbar />
       <div className="container">
+        <h2 className="text-center text-info-emphasis mt-3">
+          {updateId ? "Update" : "Registration"} Student
+        </h2>
         <div className="row justify-content-center">
           <form className="row g-3 col-md-6">
             <div className="col-md-6">
@@ -213,7 +217,7 @@ const SavePage = () => {
                   inputOnChange("nationality", e.target.value);
                 }}
                 type="text"
-                placeholder="Bangladesh"
+                placeholder=""
                 className="form-control "
                 id="nationality"
               />
@@ -235,8 +239,13 @@ const SavePage = () => {
             </div>
             <div className="col-12">
               <button onClick={Save} type="submit" className="btn btn-success">
-                Submit
+                {updateId ? "Update" : "Submit"}
               </button>
+              {updateId && (
+                <Link to={"/"} type="submit" className="btn btn-danger ms-3">
+                  Cancel
+                </Link>
+              )}
             </div>
           </form>
         </div>

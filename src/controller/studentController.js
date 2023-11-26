@@ -47,7 +47,7 @@ studentRouter.post("/add", async (req, res) => {
         email,
         phone,
         courses,
-        relationship,
+        nationality,
         admissionDate,
       } = req.body;
   
@@ -63,7 +63,7 @@ studentRouter.post("/add", async (req, res) => {
             email,
             phone,
             courses,
-            relationship,
+            nationality,
             admissionDate,
           },
         },

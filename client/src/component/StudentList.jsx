@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import toast, { Toaster } from "react-hot-toast";
@@ -25,7 +26,7 @@ const StudentList = () => {
       toast.success("Delete Failed");
     }
   };
-  if (student === undefined) {
+  if (student === null) {
     return (
       <Spinner animation="border" role="status">
         <span className="visually-hidden">Loading...</span>
@@ -36,39 +37,42 @@ const StudentList = () => {
     <div className="container">
       <div className="row">
         <div className="col-md-12">
+          <h1 className="text-center">Student List</h1>
           <div className="table-responsive">
             <table className="table-bordered">
-              <thead>
-                <tr>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Email</th>
-                  <th>DOB</th>
-                  <th>Phone</th>
-                  <th>Address</th>
-                  <th>Gender</th>
-                  <th>AdmissionDate</th>
-                  <th>Nationality</th>
-                  <th>Courses</th>
-                  <th>Action</th>
+              <thead className="bg-info">
+                <tr className="text-center">
+                  <th className="p-2">First Name</th>
+                  <th className="p-2">Last Name</th>
+                  <th className="p-2">Email</th>
+                  <th className="p-2">DOB</th>
+                  <th className="p-2">Phone</th>
+                  <th className="p-2">Address</th>
+                  <th className="p-2">Gender</th>
+                  <th className="p-2">AdmissionDate</th>
+                  <th className="p-2">Nationality</th>
+                  <th className="p-2">Courses</th>
+                  <th className="p-2">Action</th>
                 </tr>
               </thead>
               <tbody>
                 {student &&
                   student.map((item, i) => (
                     <tr key={i}>
-                      <td>{item.firstName}</td>
-                      <td>{item.lastName}</td>
-                      <td>{item.email}</td>
-                      <td>{new Date(item.dateOfBirth).toLocaleDateString()}</td>
-                      <td>{item.phone}</td>
-                      <td>{item.address}</td>
-                      <td>{item.gender}</td>
-                      <td>
+                      <td className="p-1 py-3">{item.firstName}</td>
+                      <td className="p-1 py-3">{item.lastName}</td>
+                      <td className="p-1 py-3">{item.email}</td>
+                      <td className="p-1 py-3">
+                        {new Date(item.dateOfBirth).toLocaleDateString()}
+                      </td>
+                      <td className="p-1 py-3">{item.phone}</td>
+                      <td className="p-1 py-3">{item.address}</td>
+                      <td className="p-1 py-3">{item.gender}</td>
+                      <td className="p-1 py-3">
                         {new Date(item.admissionDate).toLocaleDateString()}
                       </td>
-                      <td>{item.nationality}</td>
-                      <td>{item.courses}</td>
+                      <td className="p-1 py-3">{item.nationality}</td>
+                      <td className="p-1 py-3">{item.courses}</td>
                       <td>
                         <button
                           onClick={() => {

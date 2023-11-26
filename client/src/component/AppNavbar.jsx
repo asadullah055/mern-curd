@@ -1,17 +1,19 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const AppNavbar = () => {
   return (
     <Navbar bg="primary" data-bs-theme="dark">
       <Container>
-        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-        <Nav className="me-auto">
-          <NavLink className="nav-link" to="/">
+        <Link className="fs-4 text-white text-decoration-none" to="/">
+          e-school
+        </Link>
+        <Nav className="me-auto w-75 justify-content-center">
+          <NavLink className="nav-link fs-6 fw-semibold" to="/">
             Home
           </NavLink>
-          <NavLink className="nav-link" to="/save">
+          <NavLink className="nav-link fs-6 fw-semibold" to="/save">
             Registration
           </NavLink>
         </Nav>
